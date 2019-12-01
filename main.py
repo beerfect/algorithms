@@ -92,3 +92,45 @@ def reverse_copy(L):
     for i in range(len(L)-1, -1, -1):
         copy.append(L[i])
     return copy
+
+# бинарный поиск в списке
+def left_bound(L,key):
+    left = -1
+    right = len(L)
+    while right - left > 1:
+        middle = (left + right)//2
+        if  L[middle] < key:
+            left = middle
+        else:
+            right = middle
+    return left
+
+def right_bound(L,key):
+    left = -1
+    right = len(L)
+    while right - left > 1:
+        middle = (left + right)//2
+        if  L[middle] <= key:
+            left = middle
+        else:
+            right = middle
+    return right
+
+def binary_search(L,key):
+    l = left_bound(L, key)
+    r = right_bound(L, key)
+    print(f'There is {r - l - 1} keys in list',end=' ')
+    if r - l > 1: 
+        print(f'starts from index {l + 1} to {r - 1}')
+
+# число фиббоначи
+def fib_recursive(n):
+    if n <= 1:
+        return n
+    return fib_recursive(n-1) + fib_recursive(n-2)
+
+def fib_dynamic(n):
+    fib = [0, 1]
+    for i in range(2, n + 1):
+        fib.append(fib[i-1] + fib[i-2])
+    return fib[n-1]
