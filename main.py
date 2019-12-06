@@ -134,3 +134,13 @@ def fib_dynamic(n):
     for i in range(2, n + 1):
         fib.append(fib[i-1] + fib[i-2])
     return fib[n-1]
+
+#  создание двумерного массива
+def create_table(height, width):
+    return [[0]*width for i in range(height)]
+
+my_table = create_table(2,9 )
+# print(my_table)
+
+t = [[0]*10 for i in range(2)]
+print(t)
